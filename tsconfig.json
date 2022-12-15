@@ -1,0 +1,29 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "node_modules/@types/node/globals.d.ts"
+  ],
+  
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": [
+      "es2015",
+      "es2016",
+      "es2019",
+      "dom",
+      "es2018.promise"
+    ]
+  },
+
+  "references": [
+    {
+      "path": "./tsconfig.vite-config.json"
+    }
+  ]
+}

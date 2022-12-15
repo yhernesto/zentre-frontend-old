@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  web:
+    image: my-erp-frontend
+    ports:
+      - "8081:80"
+    links:
+    - "backend"
+  backend:
+    image: my-erp-backend
+    ports:
+      - "3000:3000"
+    links:
+      - mysql:mysql
+  mysql:
+    image: mysql:8.0.29
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+    volumes:
+      - ~/Workspaces/appeiron/docker-data/minegocio-erp/data:/var/lib/mysql
+      - ~/Workspaces/appeiron/docker-data/minegocio-erp/entrypoint-initdb:/docker-entrypoint-initdb.d
+      
